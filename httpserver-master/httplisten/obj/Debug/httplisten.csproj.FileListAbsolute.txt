@@ -22,3 +22,13 @@ D:\vsprojects\httpserver-master\httplisten\bin\Debug\Newtonsoft.Json.dll
 D:\vsprojects\httpserver-master\httplisten\bin\Debug\Newtonsoft.Json.xml
 D:\vsprojects\httpserver-master\httplisten\obj\Debug\httplisten.csproj.CopyComplete
 D:\vsprojects\httpserver-master\httplisten\obj\Debug\httplisten.csprojAssemblyReference.cache
+D:\66server\httpserver-master\httplisten\bin\Debug\httplisten.exe.config
+D:\66server\httpserver-master\httplisten\bin\Debug\httplisten.exe
+D:\66server\httpserver-master\httplisten\bin\Debug\httplisten.pdb
+D:\66server\httpserver-master\httplisten\bin\Debug\Newtonsoft.Json.dll
+D:\66server\httpserver-master\httplisten\bin\Debug\Newtonsoft.Json.xml
+D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.csproj.CoreCompileInputs.cache
+D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.csproj.CopyComplete
+D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.exe
+D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.pdb
+D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.csprojAssemblyReference.cache

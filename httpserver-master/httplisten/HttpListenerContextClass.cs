@@ -5,12 +5,22 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net;
-
+using System.Timers;
 namespace httplisten
 {
+    class clientinfolist
+    {
+        public List<clientinfo> clientinfos;
+        public int counter = 0;
+        public clientinfolist()
+        {
+            clientinfos = new List<clientinfo>();
+        }
 
+    }
     class clientinfo {
-       public static Dictionary<IPAddress, clientinfo> clientinfomap = new Dictionary<IPAddress, clientinfo>();
+
+public static Dictionary<IPAddress, clientinfolist> clientinfomap = new Dictionary<IPAddress, clientinfolist>();
         public string remoteclientlocalip;
         public string remoteclientlocalport;
     }
@@ -59,8 +69,9 @@ namespace httplisten
             }
             if (request.HttpMethod == "POST")
             {
- 
-                clientinfo ci = new clientinfo();
+
+                 Console.WriteLine("key : "+ key);
+                 Console.WriteLine("content : " + content);
                 if (key == "843A58C72161787A98C23CD33AAE66F9")
                 {
                     if (exit == "exit")
@@ -71,13 +82,27 @@ namespace httplisten
                     else
                     {
                         string[] info = content.Split('?');
-                        ci.remoteclientlocalip = info[0];
-                        ci.remoteclientlocalport = info[1];
+
                         bool b = clientinfo.clientinfomap.ContainsKey(Remotipaddress);
                         if (!b)
                         {
-                            clientinfo.clientinfomap.Add(Remotipaddress, ci);
+                            clientinfolist cilist = new clientinfolist();
+                            clientinfo.clientinfomap.Add(Remotipaddress, cilist);
+                            clientinfo ci = new clientinfo();
+                            ci.remoteclientlocalip = info[0];
+                            ci.remoteclientlocalport = info[1];
+                            cilist.clientinfos.Add(ci);
                             Console.WriteLine("pcip : " + Remotipaddress);
+                            Console.WriteLine("local port : " + info[1]);
+                        }
+                        else
+                        {
+                            clientinfolist cilist = clientinfo.clientinfomap[Remotipaddress];
+                            clientinfo ci = new clientinfo();
+                            ci.remoteclientlocalip = info[0];
+                            ci.remoteclientlocalport = info[1];
+                            cilist.clientinfos.Add(ci);
+                            Console.WriteLine("local port : " + info[1]);
                         }
 
                     }
@@ -94,13 +119,18 @@ namespace httplisten
                     {
                         
                         HttpListenerResponse response = mhttplistenercontext.Response;
-                        string responseString = "843A58C72161787A98C23CD33AAE66F9?" + clientinfo.clientinfomap[Remotipaddress].remoteclientlocalip + "?" + clientinfo.clientinfomap[Remotipaddress].remoteclientlocalport;
+                        clientinfolist cilist = clientinfo.clientinfomap[Remotipaddress];
+                        string responseString = "843A58C72161787A98C23CD33AAE66F9?" + cilist.clientinfos[cilist.counter].remoteclientlocalip + "?" + cilist.clientinfos[cilist.counter].remoteclientlocalport;
                         byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
                         // Get a response stream and write the response to it.
                         response.ContentLength64 = buffer.Length;
                         System.IO.Stream output = response.OutputStream;
                         output.Write(buffer, 0, buffer.Length);
                         output.Close();
+                        if (cilist.counter < cilist.clientinfos.Count-1)
+                        {
+                            cilist.counter++;
+                        }
                     }
                     else
                     {
