@@ -1,0 +1,14 @@
+E:\VsProjects\httplisten\httplisten\bin\Release\httplisten.exe.config
+E:\VsProjects\httplisten\httplisten\bin\Release\httplisten.exe
+E:\VsProjects\httplisten\httplisten\bin\Release\httplisten.pdb
+E:\VsProjects\httplisten\httplisten\obj\Release\httplisten.csprojAssemblyReference.cache
+E:\VsProjects\httplisten\httplisten\obj\Release\httplisten.csproj.CoreCompileInputs.cache
+E:\VsProjects\httplisten\httplisten\obj\Release\httplisten.exe
+E:\VsProjects\httplisten\httplisten\obj\Release\httplisten.pdb
+E:\VsProjects\httpserver\httplisten\bin\Release\httplisten.exe.config
+E:\VsProjects\httpserver\httplisten\bin\Release\httplisten.exe
+E:\VsProjects\httpserver\httplisten\bin\Release\httplisten.pdb
+E:\VsProjects\httpserver\httplisten\obj\Release\httplisten.csprojAssemblyReference.cache
+E:\VsProjects\httpserver\httplisten\obj\Release\httplisten.csproj.CoreCompileInputs.cache
+E:\VsProjects\httpserver\httplisten\obj\Release\httplisten.exe
+E:\VsProjects\httpserver\httplisten\obj\Release\httplisten.pdb
