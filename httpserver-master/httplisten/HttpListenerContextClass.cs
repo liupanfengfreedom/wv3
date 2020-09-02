@@ -91,8 +91,11 @@ public static Dictionary<IPAddress, clientinfolist> clientinfomap = new Dictiona
                             clientinfo ci = new clientinfo();
                             ci.remoteclientlocalip = info[0];
                             ci.remoteclientlocalport = info[1];
+                            cilist.clientinfos.Clear();
                             cilist.clientinfos.Add(ci);
-                            Console.WriteLine("pcip : " + Remotipaddress);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("pcip wan : " + Remotipaddress);
+                            Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine("local port : " + info[1]);
                         }
                         else
@@ -101,7 +104,11 @@ public static Dictionary<IPAddress, clientinfolist> clientinfomap = new Dictiona
                             clientinfo ci = new clientinfo();
                             ci.remoteclientlocalip = info[0];
                             ci.remoteclientlocalport = info[1];
+                            cilist.clientinfos.Clear();
                             cilist.clientinfos.Add(ci);
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("pcip wan : " + Remotipaddress);
+                            Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine("local port : " + info[1]);
                         }
 
@@ -112,7 +119,10 @@ public static Dictionary<IPAddress, clientinfolist> clientinfomap = new Dictiona
             {
                 if (key == "843A58C72161787A98C23CD33AAE66F9")
                 {
-                    Console.WriteLine("iphoneip : "+Remotipaddress);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("iphoneip wan : " + Remotipaddress);
+                    Console.ForegroundColor = ConsoleColor.White;
+
                     bool b = clientinfo.clientinfomap.ContainsKey(Remotipaddress);
                     Console.WriteLine("clientinfomap.ContainsKey b:  " + b); 
                     if (b)
@@ -120,7 +130,8 @@ public static Dictionary<IPAddress, clientinfolist> clientinfomap = new Dictiona
                         
                         HttpListenerResponse response = mhttplistenercontext.Response;
                         clientinfolist cilist = clientinfo.clientinfomap[Remotipaddress];
-                        string responseString = "843A58C72161787A98C23CD33AAE66F9?" + cilist.clientinfos[cilist.counter].remoteclientlocalip + "?" + cilist.clientinfos[cilist.counter].remoteclientlocalport;
+                       // string responseString = "843A58C72161787A98C23CD33AAE66F9?" + cilist.clientinfos[cilist.counter].remoteclientlocalip + "?" + cilist.clientinfos[cilist.counter].remoteclientlocalport;
+                        string responseString = "843A58C72161787A98C23CD33AAE66F9?" + cilist.clientinfos[0].remoteclientlocalip + "?" + cilist.clientinfos[0].remoteclientlocalport;
                         byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
                         // Get a response stream and write the response to it.
                         response.ContentLength64 = buffer.Length;
