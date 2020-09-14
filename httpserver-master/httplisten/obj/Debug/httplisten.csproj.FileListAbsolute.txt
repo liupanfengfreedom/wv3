@@ -31,4 +31,3 @@ D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.csproj.CoreCompile
 D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.csproj.CopyComplete
 D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.exe
 D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.pdb
-D:\66server\httpserver-master\httplisten\obj\Debug\httplisten.csprojAssemblyReference.cache

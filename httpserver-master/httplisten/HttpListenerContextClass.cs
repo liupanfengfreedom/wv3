@@ -77,7 +77,7 @@ public static Dictionary<IPAddress, clientinfolist> clientinfomap = new Dictiona
                     if (exit == "exit")
                     {
                         clientinfo.clientinfomap.Remove(Remotipaddress);
-                        Console.WriteLine("exit");
+                        Console.WriteLine("exit : "+DateTime.Now);
                     }
                     else
                     {
@@ -114,6 +114,14 @@ public static Dictionary<IPAddress, clientinfolist> clientinfomap = new Dictiona
 
                     }
                 }
+                HttpListenerResponse response = mhttplistenercontext.Response;
+                string responseString = "postok";
+                byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
+                // Get a response stream and write the response to it.
+                response.ContentLength64 = buffer.Length;
+                System.IO.Stream output = response.OutputStream;
+                output.Write(buffer, 0, buffer.Length);
+                output.Close();
             }
             else
             {
